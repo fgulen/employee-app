@@ -30,7 +30,7 @@ export default function App() {
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     setAuthenticated(true);
     if (user) setUsername(user);
-    navigate('/dashboard');
+    // Do not navigate; stay on the same page after login per UX requirement
   };
 
   const onLogout = () => {
@@ -44,7 +44,8 @@ export default function App() {
     <>
       <Navbar loggedIn={authenticated} username={username || undefined} onLogout={onLogout} />
       <Routes>
-        <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
+  <Route path="/login" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
+  <Route path="/" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
         <Route path="/register" element={<RegisterPage onLogin={onLogin} />} />
         <Route path="/dashboard" element={authenticated ? <Dashboard onLogout={onLogout} username={username || ''} /> : <Navigate to="/login" />} />
         <Route path="/employees" element={authenticated ? <EmployeesPage username={username || ''} /> : <Navigate to="/login" />} />

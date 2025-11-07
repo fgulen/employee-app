@@ -25,7 +25,7 @@ export default function Navbar({ loggedIn = false, username, onLogout }: NavbarP
     <header className={`navbar ${darkMode ? 'navbar-dark' : ''}`}>
       <div className="navbar-inner">
         <div className="navbar-left">
-          <Link className="navbar-logo" to="/dashboard">Employee App</Link>
+          <Link className="navbar-logo" to="/">Employee App</Link>
           <nav className="navbar-links">
             <Link className="navbar-link" to="/dashboard">Dashboard</Link>
             <Link className="navbar-link" to="/employees">Employees</Link>
@@ -36,7 +36,15 @@ export default function Navbar({ loggedIn = false, username, onLogout }: NavbarP
         </div>
 
         <div className="navbar-right">
-          {loggedIn && <span className="navbar-user">{username ?? 'User'}</span>}
+          {loggedIn && (
+            <span className="navbar-user" title={username ?? 'User'}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="avatar-svg" aria-hidden>
+                <circle cx="12" cy="8" r="3.2" fill="#c7d2fe" />
+                <path d="M4 20c0-3.3137 2.6863-6 6-6h4c3.3137 0 6 2.6863 6 6" stroke="#93c5fd" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="navbar-username-text">{username ?? 'User'}</span>
+            </span>
+          )}
           <button
             className="navbar-dark-toggle btn"
             aria-pressed={darkMode}

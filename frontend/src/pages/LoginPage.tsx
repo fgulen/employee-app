@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import api from '../services/api';
 import { setToken } from '../services/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-export default function LoginPage({ onLogin }: { onLogin?: (token: string, user?: string) => void }) {
+export default function LoginPage({ onLogin, authenticated, user }: { onLogin?: (token: string, user?: string) => void, authenticated?: boolean, user?: string }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handle = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +19,6 @@ export default function LoginPage({ onLogin }: { onLogin?: (token: string, user?
       const token = res.data.token;
       setToken(token);
       if (onLogin) onLogin(token, username);
-      navigate('/dashboard');
     } catch (err: any) {
       setErr(err?.response?.data?.error || 'Login failed');
     } finally {
@@ -37,14 +35,47 @@ export default function LoginPage({ onLogin }: { onLogin?: (token: string, user?
             <p>Explore Playwright, Selenium, and Cypress. Use this site to manage test data and experiment with automation flows.</p>
           </div>
           <div className="hero-login-card">
-            <h3>Sign in</h3>
-            <form className="login-form-card" onSubmit={handle}>
-              <input className="login-input" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} autoFocus />
-              <input className="login-input" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-              <button className="login-btn" type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Sign in'}</button>
-              {err && <div className="login-error">{err}</div>}
-            </form>
-            <div className="login-links">Don't have an account? <Link to="/register">Register</Link></div>
+            {/* decorative SVG hero image */}
+            <div className="hero-illustration" aria-hidden>
+              <svg width="160" height="100" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1">
+                    <stop offset="0" stopColor="#60a5fa" />
+                    <stop offset="1" stopColor="#7c3aed" />
+                  </linearGradient>
+                </defs>
+                <circle cx="80" cy="70" r="28" fill="#fff" opacity="0.12" />
+                <circle cx="220" cy="100" r="34" fill="#fff" opacity="0.06" />
+              </svg>
+            </div>
+            {authenticated ? (
+              <>
+                <h3>Welcome back</h3>
+                <div className="welcome-box">
+                  <div className="welcome-avatar">
+                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="8" r="4" fill="#c7d2fe" />
+                      <path d="M4 20c0-3.3137 2.6863-6 6-6h4c3.3137 0 6 2.6863 6 6" stroke="#93c5fd" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 700, marginBottom: 8 }}>{user}</div>
+                    <div style={{ color: '#475569' }}>Welcome to the app, {user}!</div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3>Sign in</h3>
+                <form className="login-form-card" onSubmit={handle}>
+                  <input className="login-input" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} autoFocus />
+                  <input className="login-input" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                  <button className="login-btn" type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Sign in'}</button>
+                  {err && <div className="login-error">{err}</div>}
+                </form>
+                <div className="login-links">Don't have an account? <Link to="/register">Register</Link></div>
+              </>
+            )}
           </div>
         </div>
       </section>
