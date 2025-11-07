@@ -1,5 +1,171 @@
-body { font-family: Arial, Helvetica, sans-serif; margin: 20px; }
-input { margin-right: 8px; }
-table { border-collapse: collapse; width: 100%; margin-top: 12px; }
-th, td { border: 1px solid #ddd; padding: 8px; }
-th { background: #f2f2f2; }
+/* Global */
+:root {
+  --bg: #f6f8fb;
+  --text: #0f1724;
+  --muted: #64748b;
+  --card-bg: #ffffff;
+  --border: rgba(15, 23, 42, 0.06);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --accent: #3182ce;
+  --danger: #ef4444;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+input {
+  margin-right: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 8px;
+}
+
+th {
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(2, 6, 23, 0.04);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--navbar-bg);
+  /* ensure at least 20px safe space from viewport edges */
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.06);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.navbar-link:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #cbe6ff;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* auto-space left and right groups */
+  gap: 12px;
+  padding: 12px 0;
+  /* vertical padding kept inside, horizontal handled by .navbar */
+  color: #ffffff;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.btn {
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-logout {
+  background: var(--danger);
+  color: #fff;
+}
+
+.navbar-dark-toggle {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text);
+}
+
+.navbar-dark {
+  background: linear-gradient(90deg, #071226, #0b1220);
+}
+
+body.dark-mode {
+  --bg: linear-gradient(90deg, #030617 0%, #071226 100%);
+  --text: #e6eef8;
+  --muted: #9aa7bd;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.06);
+  --navbar-bg: linear-gradient(90deg, #071226, #0b1220);
+  --accent: #60a5fa;
+}
+
+/* keep page content readable by adding an app padding container if used */
+.app-padding {
+  padding: 20px;
+}
+
+/* Page container used by pages like ManageUsers and EmployeesPage */
+.container {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding-left: 24px;
+  /* space like left navbar */
+  padding-right: 24px;
+  /* space like right navbar */
+  box-sizing: border-box;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 96px;
+    /* larger gutters on wide screens */
+    padding-right: 96px;
+  }
+}
+
+/* Responsive: collapse navbar links on small screens */
+@media (max-width: 640px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

@@ -1,83 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 export default function Dashboard({ onLogout }: any) {
   return (
-    <div className="dashboard-bg">
-      <div className="dashboard-container">
-        <h1 className="dashboard-title">Dashboard</h1>
-        <p className="dashboard-welcome">Welcome to the Employee App</p>
-        <nav className="dashboard-nav">
-          <Link className="dashboard-link" to="/employees">Employees</Link>
-        </nav>
-        <div style={{ marginTop: 24, textAlign: 'center' }}>
-          <button className="dashboard-logout" onClick={onLogout}>Logout</button>
+    <div>
+      <div className="dashboard-bg-simple">
+        <div className="dashboard-container">
+          <h2 className="dashboard-title">Dashboard</h2>
+          <p className="dashboard-welcome">Welcome to the Employee App</p>
+          <nav className="dashboard-nav">
+            <a className="dashboard-link" href="/employees">Employees</a>
+          </nav>
+          <div style={{ marginTop: 24, textAlign: 'center' }}>
+            <button className="dashboard-logout" onClick={onLogout}>Logout</button>
+          </div>
         </div>
       </div>
       <style>{`
-        .dashboard-bg {
+        .dashboard-bg-simple {
           min-height: 100vh;
-          background: linear-gradient(120deg, #f7fafc 0%, #e2e8f0 100%);
+          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 24px;
         }
+        body.dark-mode .dashboard-bg-simple { background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45)); }
         .dashboard-container {
-          background: #fff;
-          border-radius: 18px;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-          padding: 48px 36px;
-          max-width: 440px;
+          background: rgba(255,255,255,0.96);
+          border-radius: 14px;
+          box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+          padding: 36px 28px;
+          max-width: 640px;
           width: 100%;
         }
+        body.dark-mode .dashboard-container { background: rgba(10,12,16,0.72); color: #e6eef8; }
         .dashboard-title {
-          color: #2d3748;
-          font-size: 2.3rem;
+          color: #0f172a;
+          font-size: 1.8rem;
           font-weight: 700;
-          text-align: center;
-          margin-bottom: 14px;
-          letter-spacing: 1px;
+          text-align: left;
+          margin-bottom: 8px;
         }
-        .dashboard-welcome {
-          color: #4a5568;
-          font-size: 1.15rem;
-          text-align: center;
-          margin-bottom: 28px;
-        }
-        .dashboard-nav {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 28px;
-        }
-        .dashboard-link {
-          color: #3182ce;
-          background: #f7fafc;
-          border: 2px solid #3182ce;
-          border-radius: 8px;
-          padding: 10px 24px;
-          font-size: 1.05rem;
-          text-decoration: none;
-          font-weight: 500;
-          transition: background 0.2s, color 0.2s;
-        }
-        .dashboard-link:hover {
-          background: #3182ce;
-          color: #fff;
-        }
-        .dashboard-logout {
-          padding: 12px 36px;
-          background: #2d3748;
-          color: #fff;
-          border: none;
-          border-radius: 8px;
-          font-size: 1.05rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background 0.2s;
-        }
-        .dashboard-logout:hover {
-          background: #4a5568;
-        }
+        .dashboard-welcome { text-align: left; color: #475569; margin-bottom: 18px; }
+        body.dark-mode .dashboard-welcome { color: #bfcddf; }
+        .dashboard-nav { display:flex; gap:12px; margin-bottom: 18px; }
+        .dashboard-link { color: #2563eb; text-decoration: none; font-size: 16px; font-weight:600; }
+        .dashboard-link:hover { text-decoration: underline; }
+        .dashboard-logout { background: #ef4444; color:#fff; border:none; border-radius:8px; padding:8px 18px; cursor:pointer; }
       `}</style>
     </div>
   );

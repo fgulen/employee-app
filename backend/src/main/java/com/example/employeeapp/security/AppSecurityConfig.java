@@ -30,6 +30,7 @@ public class AppSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/api/auth/**",
+                    "/api/users",
                     "/swagger-ui/**",
                     "/v3/api-docs/**"
                 ).permitAll()

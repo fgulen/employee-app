@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         final String authHeader = request.getHeader("Authorization");
         final String token;
-        final String username;
+        String username = null;
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
@@ -40,7 +40,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         token = authHeader.substring(7);
-        username = jwtTokenUtil.extractUsername(token);
+        // Protect against expired/malformed tokens throwing and breaking non-auth endpoints.
+        try {
+            username = jwtTokenUtil.extractUsername(token);
+        } catch (Exception ex) {
+            // Token is invalid or expired — don't authenticate the request, but allow it to proceed
+            // so public endpoints (like /api/auth/register) continue to work.
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);

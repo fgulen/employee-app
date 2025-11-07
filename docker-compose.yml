@@ -1,31 +1,12 @@
-version: '3.8'
 services:
-  db:
+  postgres:
     image: postgres:15
+    container_name: employee-postgres
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: employeedb
+      POSTGRES_DB: employee_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
     ports:
       - "5432:5432"
     volumes:
-      - ./db-data:/var/lib/postgresql/data
-
-  backend:
-    build: ./backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/employeedb
-      SPRING_DATASOURCE_USERNAME: myuser
-      SPRING_DATASOURCE_PASSWORD: mypassword
-      JWT_SECRET: change-me-please-and-use-env
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:80"
-    depends_on:
-      - backend
+      - ./db/data:/var/lib/postgresql/data
