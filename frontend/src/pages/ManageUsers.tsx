@@ -83,7 +83,7 @@ const ManageUsers: React.FC = () => {
   };
 
   return (
-    <div className="container dark-mode">
+  <div className="container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <h2>Manage Users</h2>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>

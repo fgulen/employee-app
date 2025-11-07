@@ -94,7 +94,7 @@ export default function EmployeesPage({ username }: { username?: string }) {
   }
 
   return (
-    <div className="container dark-mode">
+  <div className="container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
         <h2>Employees</h2>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>

@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import EmployeesPage from './pages/EmployeesPage';
 import RegisterPage from './pages/Register';
 import ManageUsers from './pages/ManageUsers';
+import About from './pages/About';
 import Navbar from './components/Navbar';
 
 import { getToken } from './services/auth';
@@ -43,15 +44,25 @@ export default function App() {
   return (
     <>
       <Navbar loggedIn={authenticated} username={username || undefined} onLogout={onLogout} />
-      <Routes>
-  <Route path="/login" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
-  <Route path="/" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
-        <Route path="/register" element={<RegisterPage onLogin={onLogin} />} />
-        <Route path="/dashboard" element={authenticated ? <Dashboard onLogout={onLogout} username={username || ''} /> : <Navigate to="/login" />} />
-        <Route path="/employees" element={authenticated ? <EmployeesPage username={username || ''} /> : <Navigate to="/login" />} />
-        <Route path="/manage-users" element={authenticated ? <ManageUsers /> : <Navigate to="/login" />} />
-        <Route path="*" element={<Navigate to={authenticated ? "/dashboard" : "/login"} />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/login" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
+          <Route path="/" element={<LoginPage onLogin={onLogin} authenticated={authenticated} user={username || ''} />} />
+          <Route path="/register" element={<RegisterPage onLogin={onLogin} />} />
+          <Route path="/dashboard" element={authenticated ? <Dashboard onLogout={onLogout} username={username || ''} /> : <Navigate to="/login" />} />
+          <Route path="/employees" element={authenticated ? <EmployeesPage username={username || ''} /> : <Navigate to="/login" />} />
+          <Route path="/manage-users" element={authenticated ? <ManageUsers /> : <Navigate to="/login" />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to={authenticated ? "/dashboard" : "/login"} />} />
+        </Routes>
+      </main>
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="sliding-text">
+            <span>a happy testing with A4DB team... a happy testing with A4DB team... a happy testing with A4DB team...</span>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

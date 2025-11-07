@@ -39,15 +39,16 @@ export default function Dashboard({ username }: any) {
   const deptEntries = Object.entries(deptAgg);
 
   return (
-    <div className="container dark-mode">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <h2>Dashboard</h2>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <Link className="btn" to="/employees">Employees</Link>
-          <Link className="btn" to="/manage-users">Manage Users</Link>
-          <button className="btn" onClick={() => fetchData()}>Refresh</button>
+    <div style={{ paddingLeft: 12, paddingRight: 12 }}>
+      <div style={{ maxWidth: 1200, margin: '24px auto', width: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <h2>Dashboard</h2>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <Link className="btn" to="/employees">Employees</Link>
+            <Link className="btn" to="/manage-users">Manage Users</Link>
+            <button className="btn" onClick={() => fetchData()}>Refresh</button>
+          </div>
         </div>
-      </div>
       {username && <div style={{ marginTop: 6 }} className="message">{`Welcome back, ${username}`}</div>}
 
       <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
@@ -88,6 +89,7 @@ export default function Dashboard({ username }: any) {
             ))}
           </ul>
         </div>
+      </div>
       </div>
     </div>
   );

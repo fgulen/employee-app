@@ -2,49 +2,60 @@
 
 export default function About() {
   return (
-    <div>
-
-      <div className="about-bg">
-        <div className="about-container">
-          <h2>About EmployeeApp</h2>
-          <p>This is a modern employee management application with secure login, user management, and PostgreSQL backend.</p>
+    <div className="container">
+      <div className="about-content">
+        <h2>About EmployeeApp</h2>
+        <p>This is a modern employee management application with secure login, user management, and database backend.</p>
+        <p>Built with React, TypeScript, Spring Boot, and modern web technologies.</p>
+        <div className="features">
+          <h3>Features:</h3>
+          <ul>
+            <li>🔐 Secure JWT Authentication</li>
+            <li>👥 User Management</li>
+            <li>👨‍💼 Employee Management</li>
+            <li>📊 Dashboard Analytics</li>
+            <li>🌙 Dark Mode Support</li>
+            <li>📱 Responsive Design</li>
+          </ul>
         </div>
       </div>
       <style>{`
-        .about-bg {
-          min-height: 100vh;
-          background: #f4f4f4;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
-        body.dark-mode .about-bg {
-          background: #181818;
-        }
-        .about-container {
-          max-width: 600px;
-          margin: 40px auto 0 auto;
+        .about-content {
+          max-width: 800px;
+          margin: 40px auto;
           padding: 32px 24px;
-          background: #fff;
+          background: var(--card-bg);
           border-radius: 12px;
           box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+          border: 1px solid var(--border);
         }
-        body.dark-mode .about-container {
-          background: #222;
-          color: #eee;
+        .about-content h2 {
+          color: var(--text);
+          margin-top: 0;
+          font-size: 28px;
+          margin-bottom: 16px;
         }
-        h2 {
-          color: #2d3748;
+        .about-content p {
+          color: var(--muted);
+          line-height: 1.6;
+          font-size: 16px;
         }
-        body.dark-mode h2 {
-          color: #eee;
+        .features {
+          margin-top: 24px;
         }
-        p {
-          color: #444;
+        .features h3 {
+          color: var(--text);
+          font-size: 20px;
+          margin-bottom: 12px;
         }
-        body.dark-mode p {
-          color: #bbb;
+        .features ul {
+          list-style: none;
+          padding: 0;
+        }
+        .features li {
+          color: var(--text);
+          padding: 8px 0;
+          font-size: 16px;
         }
       `}</style>
     </div>

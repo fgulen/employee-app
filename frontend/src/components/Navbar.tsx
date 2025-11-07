@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 type NavbarProps = { loggedIn?: boolean; username?: string; onLogout?: () => void };
 
@@ -27,11 +27,11 @@ export default function Navbar({ loggedIn = false, username, onLogout }: NavbarP
         <div className="navbar-left">
           <Link className="navbar-logo" to="/">Employee App</Link>
           <nav className="navbar-links">
-            <Link className="navbar-link" to="/dashboard">Dashboard</Link>
-            <Link className="navbar-link" to="/employees">Employees</Link>
-            <Link className="navbar-link" to="/manage-users">Manage Users</Link>
-            <Link className="navbar-link" to="/about">About</Link>
-            {!loggedIn && <Link className="navbar-link" to="/register">Register</Link>}
+            <NavLink className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`} to="/dashboard">Dashboard</NavLink>
+            <NavLink className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`} to="/employees">Employees</NavLink>
+            <NavLink className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`} to="/manage-users">Manage Users</NavLink>
+            <NavLink className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`} to="/about">About</NavLink>
+            {!loggedIn && <NavLink className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`} to="/register">Register</NavLink>}
           </nav>
         </div>
 
