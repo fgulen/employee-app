@@ -35,19 +35,7 @@ export default function LoginPage({ onLogin, authenticated, user }: { onLogin?: 
             <p>Explore Playwright, Selenium, and Cypress. Use this site to manage test data and experiment with automation flows.</p>
           </div>
           <div className="hero-login-card">
-            {/* decorative SVG hero image */}
-            <div className="hero-illustration" aria-hidden>
-              <svg width="160" height="100" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="g" x1="0" x2="1">
-                    <stop offset="0" stopColor="#60a5fa" />
-                    <stop offset="1" stopColor="#7c3aed" />
-                  </linearGradient>
-                </defs>
-                <circle cx="80" cy="70" r="28" fill="#fff" opacity="0.12" />
-                <circle cx="220" cy="100" r="34" fill="#fff" opacity="0.06" />
-              </svg>
-            </div>
+
             {authenticated ? (
               <>
                 <h3>Welcome back</h3>
