@@ -83,16 +83,17 @@ const ManageUsers: React.FC = () => {
   };
 
   return (
-  <div className="container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <h2>Manage Users</h2>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <input placeholder="Search users" value={search} onChange={e => setSearch(e.target.value)} />
-          <button className="btn" onClick={() => setShowCreate(s => !s)}>{showCreate ? 'Cancel' : 'Create New'}</button>
-          <button className="btn" onClick={reload}>Refresh</button>
-          <button className="btn" onClick={() => setShowDebug(d => !d)}>{showDebug ? 'Hide JSON' : 'Show JSON'}</button>
+    <div style={{ paddingLeft: 12, paddingRight: 12 }}>
+      <div style={{ maxWidth: 1200, margin: '24px auto', width: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <h2>Manage Users</h2>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <input placeholder="Search users" value={search} onChange={e => setSearch(e.target.value)} />
+            <button className="btn" onClick={() => setShowCreate(s => !s)}>{showCreate ? 'Cancel' : 'Create New'}</button>
+            <button className="btn" onClick={reload}>Refresh</button>
+            <button className="btn" onClick={() => setShowDebug(d => !d)}>{showDebug ? 'Hide JSON' : 'Show JSON'}</button>
+          </div>
         </div>
-      </div>
       {message && <div className="message">{message}</div>}
       {loading && <div className="message">Loading users...</div>}
       {showCreate && (
@@ -156,6 +157,7 @@ const ManageUsers: React.FC = () => {
           {JSON.stringify(users, null, 2)}
         </pre>
       )}
+      </div>
     </div>
   );
 };

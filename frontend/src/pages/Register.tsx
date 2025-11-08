@@ -102,7 +102,7 @@ export default function Register({ onLogin }: { onLogin?: (token: string, user?:
       <style>{`
         .register-bg {
           min-height: 100vh;
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+          background: #f6f8fb;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -110,33 +110,35 @@ export default function Register({ onLogin }: { onLogin?: (token: string, user?:
           padding: 24px;
         }
         body.dark-mode .register-bg {
-          background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+          background: linear-gradient(180deg, #0a0e27 0%, #0f1735 100%);
         }
         .register-container {
           max-width: 420px;
           margin: 0 auto;
-          padding: 0; /* handled by register-card */
+          padding: 0;
           width: 100%;
         }
         .register-card {
           padding: 28px 22px;
-          background: rgba(255,255,255,0.92);
+          background: #ffffff;
           border-radius: 10px;
-          border: 1px solid rgba(2,6,23,0.06);
-          box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+          border: 1px solid rgba(2,6,23,0.08);
+          box-shadow: 0 8px 24px rgba(2,6,23,0.1);
         }
         body.dark-mode .register-card {
-          background: rgba(10,12,16,0.65);
-          border: 1px solid rgba(255,255,255,0.04);
-          color: #e6eef8;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.12);
+          color: #f0f4f8;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
         .register-title {
           text-align: center;
           margin-bottom: 18px;
-          color: #17202a;
+          color: #0b1220;
+          font-weight: 700;
         }
         body.dark-mode .register-title {
-          color: #e6eef8;
+          color: #f0f4f8;
         }
         .register-form {
           display: flex;
@@ -145,46 +147,73 @@ export default function Register({ onLogin }: { onLogin?: (token: string, user?:
         }
         .register-input {
           padding: 10px 12px;
-          border: 1px solid rgba(2,6,23,0.06);
+          border: 1px solid #d1d5db;
           border-radius: 8px;
           font-size: 15px;
           outline: none;
           transition: border-color 0.15s, background 0.15s;
-          background: rgba(255,255,255,0.98);
+          background: #ffffff;
+          color: #0b1220;
+        }
+        .register-input::placeholder {
+          color: #6b7280;
         }
         .register-input:focus {
-          border-color: #60a5fa;
-          box-shadow: 0 0 0 3px rgba(96,165,250,0.06);
+          border-color: #1e40af;
+          box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
         }
         body.dark-mode .register-input {
-          background: rgba(255,255,255,0.03);
-          color: #e6eef8;
-          border: 1px solid rgba(255,255,255,0.04);
+          background: rgba(255,255,255,0.05);
+          color: #f0f4f8;
+          border: 1px solid rgba(255,255,255,0.12);
+        }
+        body.dark-mode .register-input::placeholder {
+          color: #94a3b8;
+        }
+        body.dark-mode .register-input:focus {
+          border-color: #60a5fa;
+          box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
         }
         .register-btn {
           padding: 10px 0;
-          background: linear-gradient(90deg,#2563eb,#1e40af);
+          background: linear-gradient(90deg,#0284c7,#1e40af);
           color: #fff;
           border: none;
           border-radius: 8px;
           font-size: 16px;
           cursor: pointer;
+          font-weight: 600;
           transition: transform 0.08s, box-shadow 0.12s;
+          box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
         }
-        .register-btn:active { transform: translateY(1px); }
+        .register-btn:hover {
+          box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+        }
+        .register-btn:active { 
+          transform: translateY(1px); 
+        }
         .register-btn:disabled {
-          background: #90cdf4;
+          background: #93c5fd;
           cursor: not-allowed;
+          box-shadow: none;
         }
         .register-error {
-          color: #f87171;
+          color: #dc2626;
           text-align: center;
           margin-top: 8px;
+          font-weight: 500;
+        }
+        body.dark-mode .register-error {
+          color: #fca5a5;
         }
         .register-success {
-          color: #34d399;
+          color: #059669;
           text-align: center;
           margin-top: 8px;
+          font-weight: 500;
+        }
+        body.dark-mode .register-success {
+          color: #86efac;
         }
       `}</style>
     </div>

@@ -28,12 +28,24 @@ public class AppSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                // Allow Swagger UI and API docs without authentication
                 .requestMatchers(
-                    "/api/auth/**",
-                    "/api/users",
                     "/swagger-ui/**",
-                    "/v3/api-docs/**"
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs",
+                    "/swagger-resources/**",
+                    "/swagger-resources",
+                    "/webjars/**",
+                    "/favicon.ico"
                 ).permitAll()
+                // Allow auth endpoints without authentication
+                .requestMatchers("/api/auth/**").permitAll()
+                // Allow public user endpoints
+                .requestMatchers("GET", "/api/users").permitAll()
+                // Allow public employee endpoints (read-only)
+                .requestMatchers("GET", "/api/employees/**").permitAll()
+                // Everything else requires authentication
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

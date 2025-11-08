@@ -48,7 +48,7 @@ export default function LoginPage({ onLogin, authenticated, user }: { onLogin?: 
                   </div>
                   <div>
                     <div style={{ fontWeight: 700, marginBottom: 8 }}>{user}</div>
-                    <div style={{ color: '#475569' }}>Welcome to the app, {user}!</div>
+                    <div style={{ color: '#6b7280' }}>Welcome to the app, {user}!</div>
                   </div>
                 </div>
               </>
@@ -92,25 +92,29 @@ export default function LoginPage({ onLogin, authenticated, user }: { onLogin?: 
         .hero { padding: 56px 20px; max-width: 1200px; margin: 0 auto; }
         .hero-inner { display: flex; gap: 36px; align-items: center; justify-content: space-between; }
         .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 2.2rem; margin: 0 0 8px 0; color: #0b1220; }
-        .hero-text p { color: #334155; margin: 0; max-width: 640px; line-height: 1.5; }
+        .hero-text h1 { font-size: 2.2rem; margin: 0 0 8px 0; color: #0b1220; font-weight: 700; }
+        .hero-text p { color: #334155; margin: 0; max-width: 640px; line-height: 1.5; font-size: 1rem; }
         /* Prominent, light sign-in card */
-        .hero-login-card { width: 380px; background: #ffffff; padding: 26px; border-radius: 14px; box-shadow: 0 10px 30px rgba(15,23,42,0.08); border: 1px solid rgba(15,23,42,0.04); }
-        .hero-login-card h3 { margin: 0 0 12px 0; color: #0b1220; }
+        .hero-login-card { width: 380px; background: #ffffff; padding: 26px; border-radius: 14px; box-shadow: 0 10px 30px rgba(15,23,42,0.12); border: 1px solid rgba(15,23,42,0.08); }
+        .hero-login-card h3 { margin: 0 0 12px 0; color: #0b1220; font-weight: 700; }
         .login-form-card { display: flex; flex-direction: column; gap: 12px; }
-        .login-input { padding: 12px 14px; border-radius: 10px; border: 1px solid #e6eef8; background: #fbfdff; color: #0b1220; box-shadow: inset 0 1px 0 rgba(0,0,0,0.02); }
-        .login-input::placeholder { color: #94a3b8; }
-        .login-btn { padding: 12px; background: linear-gradient(90deg,#0ea5e9,#7c3aed); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; box-shadow: 0 6px 18px rgba(124,58,237,0.18); }
+        .login-input { padding: 12px 14px; border-radius: 10px; border: 1px solid #d1d5db; background: #fbfdff; color: #0b1220; font-size: 1rem; }
+        .login-input::placeholder { color: #6b7280; }
+        .login-input:focus { outline: none; border-color: #1e40af; box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); }
+        .login-btn { padding: 12px; background: linear-gradient(90deg,#0284c7,#7c3aed); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; box-shadow: 0 6px 18px rgba(124,58,237,0.2); font-size: 1rem; }
+        .login-btn:hover { box-shadow: 0 8px 24px rgba(124,58,237,0.3); }
         .login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .login-error { color: #dc2626; margin-top: 8px; }
-        .login-links { margin-top: 10px; font-size: 14px; color: #475569; }
+        .login-error { color: #dc2626; margin-top: 8px; font-weight: 500; font-size: 0.95rem; }
+        .login-links { margin-top: 10px; font-size: 0.95rem; color: #475569; }
+        .login-links a { color: #0284c7; text-decoration: none; font-weight: 600; }
+        .login-links a:hover { text-decoration: underline; }
 
         .automation-section { padding: 36px 20px 70px; max-width: 1200px; margin: 0 auto; }
-        .automation-hero { margin-bottom: 18px; padding: 18px; background: #ffffff; border-radius: 10px; color: #0b1220; box-shadow: 0 6px 20px rgba(15,23,42,0.04); }
+        .automation-hero { margin-bottom: 18px; padding: 18px; background: #ffffff; border-radius: 10px; color: #0b1220; box-shadow: 0 6px 20px rgba(15,23,42,0.08); font-weight: 600; }
         .automation-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-        .card { background: #ffffff; padding: 18px; border-radius: 10px; box-shadow: 0 8px 26px rgba(15,23,42,0.04); border: 1px solid rgba(15,23,42,0.03); }
-        .card h4 { margin: 0 0 8px 0; color: #0b1220; }
-        .card p { margin: 0; color: #475569; font-size: 14px; }
+        .card { background: #ffffff; padding: 18px; border-radius: 10px; box-shadow: 0 8px 26px rgba(15,23,42,0.08); border: 1px solid rgba(15,23,42,0.06); }
+        .card h4 { margin: 0 0 8px 0; color: #0b1220; font-weight: 700; }
+        .card p { margin: 0; color: #475569; font-size: 0.95rem; line-height: 1.5; }
 
         @media (max-width: 800px) {
           .hero-inner { flex-direction: column-reverse; align-items: stretch; }

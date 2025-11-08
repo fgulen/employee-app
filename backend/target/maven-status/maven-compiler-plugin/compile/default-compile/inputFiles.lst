@@ -1,6 +1,12 @@
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\config\CorsConfig.java
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\config\OpenApiConfig.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\controller\AuthController.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\controller\EmployeeController.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\controller\UsersController.java
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\dto\LoginRequest.java
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\dto\LoginResponse.java
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\dto\RegisterRequest.java
+C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\dto\RegisterResponse.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\EmployeeAppApplication.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\model\Employee.java
 C:\Users\fg\Desktop\employee-app\backend\src\main\java\com\example\employeeapp\model\User.java

@@ -1,8 +1,14 @@
+com\example\employeeapp\dto\LoginRequest.class
+com\example\employeeapp\dto\LoginResponse.class
 com\example\employeeapp\security\JwtTokenUtil.class
+com\example\employeeapp\config\CorsConfig.class
 com\example\employeeapp\repository\UserRepository.class
 com\example\employeeapp\EmployeeAppApplication.class
+com\example\employeeapp\dto\RegisterRequest.class
 com\example\employeeapp\model\User.class
 com\example\employeeapp\security\JwtAuthenticationFilter.class
+com\example\employeeapp\dto\RegisterResponse.class
+com\example\employeeapp\config\OpenApiConfig.class
 com\example\employeeapp\controller\AuthController.class
 com\example\employeeapp\repository\EmployeeRepository.class
 com\example\employeeapp\controller\EmployeeController.class

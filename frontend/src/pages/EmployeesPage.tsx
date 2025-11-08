@@ -94,14 +94,15 @@ export default function EmployeesPage({ username }: { username?: string }) {
   }
 
   return (
-  <div className="container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-        <h2>Employees</h2>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <input placeholder="Search employees" value={search} onChange={e => setSearch(e.target.value)} />
-          <button className="btn" onClick={() => setShowCreate(s => !s)}>{showCreate ? 'Cancel' : 'Create New'}</button>
+    <div style={{ paddingLeft: 12, paddingRight: 12 }}>
+      <div style={{ maxWidth: 1200, margin: '24px auto', width: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <h2>Employees</h2>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <input placeholder="Search employees" value={search} onChange={e => setSearch(e.target.value)} />
+            <button className="btn" onClick={() => setShowCreate(s => !s)}>{showCreate ? 'Cancel' : 'Create New'}</button>
+          </div>
         </div>
-      </div>
       {error && <div className="message">{error}</div>}
       {success && <div className="message">{success}</div>}
       {loading && <div className="message">Loading employees...</div>}
@@ -153,9 +154,7 @@ export default function EmployeesPage({ username }: { username?: string }) {
             ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
-
-// ...existing code...
-/* All CSS below is now inside the <style> tag in JSX above, with correct syntax. */

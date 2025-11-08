@@ -2,12 +2,13 @@
 :root {
   --bg: #f6f8fb;
   --text: #0f1724;
-  --muted: #64748b;
+  --muted: #475569;
   --card-bg: #ffffff;
-  --border: rgba(15, 23, 42, 0.06);
+  --border: rgba(15, 23, 42, 0.12);
   --navbar-bg: rgba(255, 255, 255, 0.9);
-  --accent: #3182ce;
-  --danger: #ef4444;
+  --accent: #1e40af;
+  --danger: #dc2626;
+  --success: #059669;
 }
 
 body {
@@ -86,13 +87,13 @@ th {
 }
 
 .navbar-link:hover {
-  background: rgba(255, 255, 255, 0.04);
-  color: #cbe6ff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #2563eb;
 }
 
 .navbar-link.active {
-  background: linear-gradient(90deg, rgba(49, 130, 206, 0.12), rgba(99, 102, 241, 0.06));
-  color: var(--accent);
+  background: linear-gradient(90deg, rgba(49, 130, 206, 0.15), rgba(99, 102, 241, 0.08));
+  color: #2563eb;
 }
 
 .navbar-right {
@@ -162,12 +163,12 @@ th {
 }
 
 body.dark-mode {
-  --bg: linear-gradient(90deg, #030617 0%, #071226 100%);
-  --text: #e6eef8;
-  --muted: #9aa7bd;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --border: rgba(255, 255, 255, 0.06);
-  --navbar-bg: linear-gradient(90deg, #071226, #0b1220);
+  --bg: linear-gradient(90deg, #0a0e27 0%, #0f1735 100%);
+  --text: #f0f4f8;
+  --muted: #cbd5e1;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --navbar-bg: linear-gradient(90deg, #0a0e27, #0f1735);
   --accent: #60a5fa;
 }
 
@@ -267,4 +268,244 @@ body.dark-mode .footer {
 
 .welcome-avatar {
   flex-shrink: 0;
+}
+
+/* ========== DARK MODE ENHANCEMENTS ========== */
+
+/* Dark mode dark toggle button */
+body.dark-mode .navbar-dark-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f0f4f8;
+}
+
+body.dark-mode .navbar-dark-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Dark mode logout button */
+body.dark-mode .navbar-logout {
+  background: #ef4444;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+body.dark-mode .navbar-logout:hover {
+  background: #dc2626;
+}
+
+/* Login Page Dark Mode */
+body.dark-mode .login-page-root {
+  background: linear-gradient(90deg, #0a0e27 0%, #0f1735 100%);
+  color: #f0f4f8;
+}
+
+body.dark-mode .hero-text h1 {
+  color: #f0f4f8;
+}
+
+body.dark-mode .hero-text p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hero-login-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .hero-login-card h3 {
+  color: #f0f4f8;
+}
+
+body.dark-mode .login-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f0f4f8;
+}
+
+body.dark-mode .login-input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark-mode .login-input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1);
+}
+
+body.dark-mode .login-btn {
+  background: linear-gradient(90deg, #0284c7, #6366f1);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.3);
+}
+
+body.dark-mode .login-btn:hover {
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+body.dark-mode .login-error {
+  color: #fca5a5;
+}
+
+body.dark-mode .login-links {
+  color: #cbd5e1;
+}
+
+body.dark-mode .login-links a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+body.dark-mode .login-links a:hover {
+  text-decoration: underline;
+}
+
+body.dark-mode .automation-hero {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f0f4f8;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card h4 {
+  color: #f0f4f8;
+}
+
+body.dark-mode .card p {
+  color: #cbd5e1;
+}
+
+/* Form styling for dark mode */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="email"],
+body.dark-mode textarea,
+body.dark-mode select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f0f4f8;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #94a3b8;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1);
+}
+
+/* Button styling for dark mode */
+body.dark-mode .btn {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+body.dark-mode .btn:hover {
+  background: rgba(96, 165, 250, 0.25);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+/* Table styling for dark mode */
+body.dark-mode table {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f0f4f8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e6eef8;
+}
+
+/* Links in dark mode */
+body.dark-mode a {
+  color: #60a5fa;
+}
+
+body.dark-mode a:hover {
+  color: #93c5fd;
+}
+
+/* Welcome message in dark mode */
+body.dark-mode .message {
+  color: #cbd5e1;
+}
+
+/* Stat cards and general elements */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5 {
+  color: #f0f4f8;
+}
+
+body.dark-mode p {
+  color: #cbd5e1;
+}
+
+/* Success and error messages */
+body.dark-mode .error {
+  color: #fca5a5;
+}
+
+body.dark-mode .success {
+  color: #86efac;
+}
+
+/* List item styling */
+body.dark-mode li {
+  color: #e6eef8;
+}
+
+/* Dashed border in dark mode */
+body.dark-mode ul li {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Code blocks if any */
+body.dark-mode code {
+  background: rgba(255, 255, 255, 0.08);
+  color: #93c5fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Additional inline style overrides for better dark mode contrast */
+body.dark-mode .message {
+  color: #cbd5e1;
+}
+
+/* Ensure text in dashed borders is visible */
+body.dark-mode ul li {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: #e6eef8;
+}
+
+/* StatCard styling for dark mode */
+body.dark-mode .stat-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .stat-title {
+  color: #cbd5e1;
+  font-weight: 700;
 }
