@@ -20,15 +20,59 @@ public class EmployeeAppApplication {
     }
 
     @Bean
-    public CommandLineRunner createAdminUser(UserRepository userRepository) {
+    public CommandLineRunner seedUsers(UserRepository userRepository) {
         return args -> {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            
+            // Check if users already exist
             if (userRepository.findByUsername("admin").isEmpty()) {
+                // Admin user
                 User admin = new User();
                 admin.setUsername("admin");
-                admin.setPassword(new BCryptPasswordEncoder().encode("admin"));
+                admin.setPassword(encoder.encode("admin"));
                 admin.setRole("ROLE_ADMIN");
+                admin.setEmail("admin@firma.de");
                 userRepository.save(admin);
-                System.out.println("Default admin user created: admin/admin");
+                
+                // Regular users
+                User user1 = new User();
+                user1.setUsername("max.mueller");
+                user1.setPassword(encoder.encode("password123"));
+                user1.setRole("ROLE_USER");
+                user1.setEmail("max.mueller@firma.de");
+                userRepository.save(user1);
+                
+                User user2 = new User();
+                user2.setUsername("lena.schmidt");
+                user2.setPassword(encoder.encode("password123"));
+                user2.setRole("ROLE_USER");
+                user2.setEmail("lena.schmidt@firma.de");
+                userRepository.save(user2);
+                
+                User user3 = new User();
+                user3.setUsername("jonas.fischer");
+                user3.setPassword(encoder.encode("password123"));
+                user3.setRole("ROLE_USER");
+                user3.setEmail("jonas.fischer@firma.de");
+                userRepository.save(user3);
+                
+                User user4 = new User();
+                user4.setUsername("laura.weber");
+                user4.setPassword(encoder.encode("password123"));
+                user4.setRole("ROLE_USER");
+                user4.setEmail("laura.weber@firma.de");
+                userRepository.save(user4);
+                
+                User user5 = new User();
+                user5.setUsername("paul.becker");
+                user5.setPassword(encoder.encode("password123"));
+                user5.setRole("ROLE_ADMIN");
+                user5.setEmail("paul.becker@firma.de");
+                userRepository.save(user5);
+                
+                System.out.println("Seeded 6 users (2 admins, 4 regular users)");
+                System.out.println("Admin users: admin/admin, paul.becker/password123");
+                System.out.println("Regular users: max.mueller, lena.schmidt, jonas.fischer, laura.weber (all password: password123)");
             }
         };
     }

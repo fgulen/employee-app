@@ -15,7 +15,7 @@ export const removeToken = (): void => {
 
 export const login = async (username: string, password: string): Promise<string> => {
   // This should match your backend login endpoint
-  const response = await fetch('/api/auth/login', {
+  const response = await fetch('http://localhost:8081/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

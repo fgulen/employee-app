@@ -7,6 +7,7 @@ import com.example.employeeapp.dto.LoginRequest;
 import com.example.employeeapp.dto.LoginResponse;
 import com.example.employeeapp.dto.RegisterRequest;
 import com.example.employeeapp.dto.RegisterResponse;
+import com.example.employeeapp.exception.DuplicateUsernameException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -64,7 +65,7 @@ public class AuthController {
             throw new IllegalArgumentException("Username and password required");
         }
         if (userRepository.findByUsername(username).isPresent()) {
-            throw new IllegalArgumentException("Username already exists");
+            throw new DuplicateUsernameException("Username '" + username + "' is already taken");
         }
         User user = new User();
         user.setUsername(username);
